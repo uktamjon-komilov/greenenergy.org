@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 12:14+0500\n"
+"POT-Creation-Date: 2022-02-23 15:02+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,98 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\green_energy\settings.py:90
+#: .\green_energy\settings.py:92
 msgid "Uzbek"
 msgstr ""
 
-#: .\green_energy\settings.py:91
+#: .\green_energy\settings.py:93
 msgid "English"
 msgstr ""
 
-#: .\green_energy\settings.py:92
+#: .\green_energy\settings.py:94
 msgid "Russian"
+msgstr ""
+
+#: .\green_energy\settings.py:95
+msgid "German"
+msgstr ""
+
+#: .\templates\base.html:13
+msgid "Site Title"
+msgstr ""
+
+#: .\templates\base.html:29 .\templates\components\header.html:13
+msgid "Search Here..."
+msgstr ""
+
+#: .\templates\components\footer.html:17
+msgid "about_us_text"
+msgstr ""
+
+#: .\templates\components\footer.html:28
+msgid "Contact Us"
+msgstr ""
+
+#: .\templates\components\footer.html:30
+msgid "footer_address"
+msgstr ""
+
+#: .\templates\components\footer.html:31
+msgid "footer_phone"
+msgstr ""
+
+#: .\templates\components\footer.html:32
+msgid "footer_email"
+msgstr ""
+
+#: .\templates\components\footer.html:34
+msgid "footer_working_hours"
+msgstr ""
+
+#: .\templates\components\footer.html:40
+msgid "Quick Links"
+msgstr ""
+
+#: .\templates\components\footer.html:51
+msgid "Newsletter"
+msgstr ""
+
+#: .\templates\components\footer.html:53
+msgid "Subscribe Our Newsletter To Get Latest Update And News"
+msgstr ""
+
+#: .\templates\components\footer.html:58
+msgid "Subscribe Now"
+msgstr ""
+
+#: .\templates\components\footer.html:73
+msgid "copyright_year"
+msgstr ""
+
+#: .\templates\components\footer.html:76
+msgid "All Rights Reserved."
+msgstr ""
+
+#: .\templates\components\header.html:26
+msgid "header_phone"
+msgstr ""
+
+#: .\templates\components\header.html:28
+msgid "header_email"
+msgstr ""
+
+#: .\templates\components\header.html:50
+msgid "Follow Us:"
+msgstr ""
+
+#: .\templates\components\header.html:75
+msgid "Home"
+msgstr ""
+
+#: .\templates\components\header.html:78
+msgid "About"
+msgstr ""
+
+#: .\templates\components\header.html:81
+msgid "Contact"
 msgstr ""

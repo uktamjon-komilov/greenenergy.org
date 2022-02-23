@@ -1,5 +1,7 @@
 from django.contrib import admin
 
+from .models import *
+
 
 # class CourseAdmin(admin.ModelAdmin):
 
@@ -10,3 +12,6 @@ from django.contrib import admin
 
 
 # admin.site.register(Course, CourseAdmin)
+
+
+admin.site.register(FollowLink)

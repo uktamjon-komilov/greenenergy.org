@@ -92,6 +92,7 @@ LANGUAGES = (
     ("uz", _("Uzbek")),
     ("en", _("English")),
     ("ru", _("Russian")),
+    ("de", _("German")),
 )
 
 LOCALE_PATHS = [
@@ -103,6 +104,7 @@ PARLER_LANGUAGES = {
         {"code": "uz",},
         {"code": "ru",},
         {"code": "en",},
+        {"code": "de",},
     ),
     "default": {
         "fallbacks": ["uz"],
