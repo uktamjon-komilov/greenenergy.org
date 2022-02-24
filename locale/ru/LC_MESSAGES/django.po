@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-23 15:02+0500\n"
+"POT-Creation-Date: 2022-02-23 15:51+0500\n"
 "PO-Revision-Date: 2022-02-22 12:19+0500\n"
 "Last-Translator:   <admin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,6 +50,7 @@ msgid "about_us_text"
 msgstr ""
 
 #: .\templates\components\footer.html:28
+#: .\templates\components\home\index_hero.html:26
 msgid "Contact Us"
 msgstr ""
 
@@ -73,23 +74,23 @@ msgstr ""
 msgid "Quick Links"
 msgstr ""
 
-#: .\templates\components\footer.html:51
+#: .\templates\components\footer.html:48
 msgid "Newsletter"
 msgstr ""
 
-#: .\templates\components\footer.html:53
+#: .\templates\components\footer.html:50
 msgid "Subscribe Our Newsletter To Get Latest Update And News"
 msgstr ""
 
-#: .\templates\components\footer.html:58
+#: .\templates\components\footer.html:55
 msgid "Subscribe Now"
 msgstr ""
 
-#: .\templates\components\footer.html:73
+#: .\templates\components\footer.html:70
 msgid "copyright_year"
 msgstr ""
 
-#: .\templates\components\footer.html:76
+#: .\templates\components\footer.html:73
 msgid "All Rights Reserved."
 msgstr ""
 
@@ -115,4 +116,69 @@ msgstr ""
 
 #: .\templates\components\header.html:81
 msgid "Contact"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:12
+msgid "about_section_years"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:13
+msgid "about_section_years_of"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:13
+msgid "about_section_experience"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:20
+#: .\templates\components\home\index_hero.html:27
+msgid "About Us"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:22
+msgid "about_section_title_1"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:22
+msgid "about_section_title_2"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:22
+msgid "about_section_title_3"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:25
+msgid "about_section_text"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:31
+msgid "about_section_feature_1_title"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:32
+msgid "about_section_feature_1_desc"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:38
+msgid "about_section_feature_2_title"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:39
+msgid "about_section_feature_2_desc"
+msgstr ""
+
+#: .\templates\components\home\index_about.html:44
+msgid "Discover More"
+msgstr ""
+
+#: .\templates\components\home\index_hero.html:15
+msgid "hero_title_1"
+msgstr ""
+
+#: .\templates\components\home\index_hero.html:18
+msgid "hero_title_2"
+msgstr ""
+
+#: .\templates\components\home\index_hero.html:22
+msgid "hero_title_3"
 msgstr ""

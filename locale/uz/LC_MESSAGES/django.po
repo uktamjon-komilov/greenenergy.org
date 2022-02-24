@@ -2,114 +2,189 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-23 15:02+0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2022-02-23 15:51+0500\n"
+"PO-Revision-Date: 2022-02-23 16:00+0500\n"
+"Last-Translator:   <admin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: .\green_energy\settings.py:92
 msgid "Uzbek"
-msgstr ""
+msgstr "O'zbekcha"
 
 #: .\green_energy\settings.py:93
 msgid "English"
-msgstr ""
+msgstr "Inglizcha"
 
 #: .\green_energy\settings.py:94
 msgid "Russian"
-msgstr ""
+msgstr "Ruscha"
 
 #: .\green_energy\settings.py:95
 msgid "German"
-msgstr ""
+msgstr "Nemischa"
 
 #: .\templates\base.html:13
 msgid "Site Title"
-msgstr ""
+msgstr "Greenenergy.org"
 
 #: .\templates\base.html:29 .\templates\components\header.html:13
 msgid "Search Here..."
-msgstr ""
+msgstr "Qidiring..."
 
 #: .\templates\components\footer.html:17
 msgid "about_us_text"
-msgstr ""
+msgstr "Discover More "
 
 #: .\templates\components\footer.html:28
+#: .\templates\components\home\index_hero.html:26
 msgid "Contact Us"
-msgstr ""
+msgstr "Bog'lanish"
 
 #: .\templates\components\footer.html:30
 msgid "footer_address"
-msgstr ""
+msgstr "Toshkent shari, Chilonzor tumani"
 
 #: .\templates\components\footer.html:31
 msgid "footer_phone"
-msgstr ""
+msgstr "+998-97-033-09-09"
 
 #: .\templates\components\footer.html:32
 msgid "footer_email"
-msgstr ""
+msgstr "sales@greenenrgy.org"
 
 #: .\templates\components\footer.html:34
 msgid "footer_working_hours"
-msgstr ""
+msgstr "Dush - Shan (09:00 - 18:00)"
 
 #: .\templates\components\footer.html:40
 msgid "Quick Links"
-msgstr ""
+msgstr "Tezkor havolalar"
 
-#: .\templates\components\footer.html:51
+#: .\templates\components\footer.html:48
 msgid "Newsletter"
-msgstr ""
+msgstr "Axborot byulleteni"
 
-#: .\templates\components\footer.html:53
+#: .\templates\components\footer.html:50
 msgid "Subscribe Our Newsletter To Get Latest Update And News"
 msgstr ""
+"Eng so'nggi yangilanish va yangiliklarni olish uchun bizning axborot "
+"byulletenimizga obuna bo'ling"
 
-#: .\templates\components\footer.html:58
+#: .\templates\components\footer.html:55
 msgid "Subscribe Now"
-msgstr ""
+msgstr "Hozir obuna bo'ling"
+
+#: .\templates\components\footer.html:70
+msgid "copyright_year"
+msgstr "2022"
 
 #: .\templates\components\footer.html:73
-msgid "copyright_year"
-msgstr ""
-
-#: .\templates\components\footer.html:76
 msgid "All Rights Reserved."
-msgstr ""
+msgstr "Barcha huquqlar himoyalangan."
 
 #: .\templates\components\header.html:26
 msgid "header_phone"
-msgstr ""
+msgstr "+998-97-444 -08-11"
 
 #: .\templates\components\header.html:28
 msgid "header_email"
-msgstr ""
+msgstr "sales@greenenergy.org"
 
 #: .\templates\components\header.html:50
 msgid "Follow Us:"
-msgstr ""
+msgstr "Bizni kuzatib boring:"
 
 #: .\templates\components\header.html:75
 msgid "Home"
-msgstr ""
+msgstr "Bosh sahifa"
 
 #: .\templates\components\header.html:78
 msgid "About"
-msgstr ""
+msgstr "Biz haqimizda"
 
 #: .\templates\components\header.html:81
 msgid "Contact"
+msgstr "Aloqa"
+
+#: .\templates\components\home\index_about.html:12
+msgid "about_section_years"
+msgstr "15"
+
+#: .\templates\components\home\index_about.html:13
+msgid "about_section_years_of"
+msgstr "yillik"
+
+#: .\templates\components\home\index_about.html:13
+msgid "about_section_experience"
+msgstr "tajriba"
+
+#: .\templates\components\home\index_about.html:20
+#: .\templates\components\home\index_hero.html:27
+msgid "About Us"
+msgstr "Biz haqimizda"
+
+#: .\templates\components\home\index_about.html:22
+msgid "about_section_title_1"
+msgstr "Biz Sizga"
+
+#: .\templates\components\home\index_about.html:22
+msgid "about_section_title_2"
+msgstr "Quyosh Panellarini"
+
+#: .\templates\components\home\index_about.html:22
+msgid "about_section_title_3"
+msgstr "Taqdim Etamiz"
+
+#: .\templates\components\home\index_about.html:25
+msgid "about_section_text"
+msgstr ""
+"Lorem Ipsum parchalarining ko'plab variantlari mavjud, ammo ularning "
+"aksariyati biron bir shaklda, in'ektsion hazil yoki tasodifiy so'zlar bilan "
+"o'zgartirilgan, ular hatto biroz ishonarli ko'rinmaydi. Agar siz orem psum "
+"parchasidan foydalanmoqchi bo'lsangiz, ishonchingiz komil bo'lishi kerak. "
+"Internetdagi barcha Lorem Ipsum generatorlari oldindan belgilangan qismlarni"
+" takrorlashga moyil."
+
+#: .\templates\components\home\index_about.html:31
+msgid "about_section_feature_1_title"
+msgstr "Eng Yaxshi Quyosh Panellari"
+
+#: .\templates\components\home\index_about.html:32
+msgid "about_section_feature_1_desc"
+msgstr "Bizning eng yaxshi ko'rsatuvlarimizni ko'rib chiqing."
+
+#: .\templates\components\home\index_about.html:38
+msgid "about_section_feature_2_title"
+msgstr "Eng yaxshi qayta tiklanadigan energiya"
+
+#: .\templates\components\home\index_about.html:39
+msgid "about_section_feature_2_desc"
+msgstr "U nafaqat besh asr davomida saqlanib qoldi."
+
+#: .\templates\components\home\index_about.html:44
+msgid "Discover More"
+msgstr "Ko'proq kashf qiling"
+
+#: .\templates\components\home\index_hero.html:15
+msgid "hero_title_1"
+msgstr ""
+
+#: .\templates\components\home\index_hero.html:18
+msgid "hero_title_2"
+msgstr ""
+
+#: .\templates\components\home\index_hero.html:22
+msgid "hero_title_3"
 msgstr ""

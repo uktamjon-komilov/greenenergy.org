@@ -5,11 +5,13 @@ from website.models import *
 
 def home_page(request):
     follow_links = FollowLink.objects.all()
+    banner_heros = BannerHero.objects.all()
     return render(
         request,
         "index.html",
         context={
             "follow_links": follow_links,
+            "banner_heros": banner_heros
         }
     )
 

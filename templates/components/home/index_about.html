@@ -1,0 +1,49 @@
+{% load i18n %}
+
+<div class="about-area py-120">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-left">
+                    <div class="about-img">
+                        <img src="assets/img/ishchi.jpg" alt="">
+                    </div>
+                    <div class="about-experience">
+                        <span>{% trans 'about_section_years' %}</span>
+                        <h5>{% trans 'about_section_years_of' %}<br>{% trans 'about_section_experience' %}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-right">
+                    <div class="site-heading mb-3">
+                        <span class="site-title-tagline">{% trans 'About Us' %}</span>
+                        <h2 class="site-title">
+                            {% trans 'about_section_title_1' %}<span> {% trans 'about_section_title_2' %}</span> {% trans 'about_section_title_3' %}
+                        </h2>
+                    </div>
+                    <p class="about-text">{% trans 'about_section_text' %}</p>
+                    <div class="about-list-wrapper">
+                        <ul class="about-list list-unstyled">
+                            <li>
+                                <div class="icon"><i class="flaticon-solar-panel"></i></div>
+                                <div class="text">
+                                    <h4>{% trans 'about_section_feature_1_title' %}</h4>
+                                    <p>{% trans 'about_section_feature_1_desc' %}</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon"><i class="flaticon-wind-turbine"></i></div>
+                                <div class="text">
+                                    <h4>{% trans 'about_section_feature_2_title' %}</h4>
+                                    <p>{% trans 'about_section_feature_2_desc' %}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="{% url 'about-page' %}" class="theme-btn">{% trans 'Discover More' %}<i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

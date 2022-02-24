@@ -1,4 +1,5 @@
 from django.contrib import admin
+from parler.admin import TranslatableAdmin
 
 from .models import *
 
@@ -15,3 +16,4 @@ from .models import *
 
 
 admin.site.register(FollowLink)
+admin.site.register(BannerHero, TranslatableAdmin)

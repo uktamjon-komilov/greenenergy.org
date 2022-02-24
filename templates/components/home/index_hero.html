@@ -1,0 +1,35 @@
+{% load static i18n %}
+
+<div class="hero-section">
+    <div class="hero-slider owl-carousel owl-theme owl-loaded">
+        <div class="owl-stage-outer">
+            <div class="owl-stage">
+                {% for hero in banner_heros %}
+                    <div class="owl-item">
+                        <div class="hero-single" style="background-image: url('{{hero.get_image}}')">
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div class="col-md-7 col-lg-7">
+                                        <div class="hero-content">
+                                            <h6 class="hero-sub-title wow animate__ animate__fadeInUp animated"
+                                                data-wow-duration="1s" data-wow-delay=".25s">{{hero.title1}}</h6>
+                                            <h1 class="hero-title wow animate__ animate__fadeInUp animated"
+                                                data-wow-duration="1s" data-wow-delay=".50s">{{hero.title2|safe}}</h1>
+                                            <p class="wow animate__ animate__fadeInUp animated" data-wow-duration="1s"
+                                                data-wow-delay=".75s">{{hero.title3}}</p>
+                                            <div class="hero-btn wow animate__ animate__fadeInUp animated"
+                                                data-wow-duration="1s" data-wow-delay="1s">
+                                                <a href="{% url 'contact-page' %}" class="theme-btn">{% trans 'Contact Us' %}<i class="fas fa-arrow-circle-right"></i></a>
+                                                <a href="{% url 'contact-page' %}" class="theme-btn theme-btn2">{% trans 'About Us' %}<i class="fas fa-arrow-circle-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
