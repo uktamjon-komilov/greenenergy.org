@@ -10,7 +10,7 @@ urlpatterns = i18n_patterns(
 )
 
 urlpatterns += [
-
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 if settings.DEBUG:

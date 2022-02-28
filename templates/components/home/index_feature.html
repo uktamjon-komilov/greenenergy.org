@@ -1,42 +1,23 @@
-<div class="feature-area pb-80">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-6 col-xl-4">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="flaticon-helmet"></i>
+{% if feature_items.count > 0 %}
+    <div class="feature-area pb-80">
+        <div class="container">
+            <div class="row">
+                
+                {% for feature_item in feature_items %}
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                {{feature_item.get_icon | safe}}
+                            </div>
+                            <div class="feature-content">
+                                <h4>{{feature_item.title | slice:":20"}}</h4>
+                                <p>{{feature_item.description }}</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-content">
-                        <h4>Trained Workers</h4>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4">
-                <div class="feature-item active">
-                    <div class="feature-icon">
-                        <i class="flaticon-gear"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h4>Quality Material</h4>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="flaticon-clock"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h4>Awesome Support</h4>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-                    </div>
-                </div>
+                {% endfor %}
+                
             </div>
         </div>
     </div>
-</div>
+{% endif %}

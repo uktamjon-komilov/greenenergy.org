@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-23 15:51+0500\n"
+"POT-Creation-Date: 2022-02-24 20:37+0300\n"
 "PO-Revision-Date: 2022-02-23 16:00+0500\n"
 "Last-Translator:   <admin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,7 +48,7 @@ msgid "about_us_text"
 msgstr "Discover More "
 
 #: .\templates\components\footer.html:28
-#: .\templates\components\home\index_hero.html:26
+#: .\templates\components\home\index_hero.html:22
 msgid "Contact Us"
 msgstr "Bog'lanish"
 
@@ -131,7 +131,7 @@ msgid "about_section_experience"
 msgstr "tajriba"
 
 #: .\templates\components\home\index_about.html:20
-#: .\templates\components\home\index_hero.html:27
+#: .\templates\components\home\index_hero.html:23
 msgid "About Us"
 msgstr "Biz haqimizda"
 
@@ -154,8 +154,8 @@ msgstr ""
 "aksariyati biron bir shaklda, in'ektsion hazil yoki tasodifiy so'zlar bilan "
 "o'zgartirilgan, ular hatto biroz ishonarli ko'rinmaydi. Agar siz orem psum "
 "parchasidan foydalanmoqchi bo'lsangiz, ishonchingiz komil bo'lishi kerak. "
-"Internetdagi barcha Lorem Ipsum generatorlari oldindan belgilangan qismlarni"
-" takrorlashga moyil."
+"Internetdagi barcha Lorem Ipsum generatorlari oldindan belgilangan qismlarni "
+"takrorlashga moyil."
 
 #: .\templates\components\home\index_about.html:31
 msgid "about_section_feature_1_title"
@@ -176,15 +176,3 @@ msgstr "U nafaqat besh asr davomida saqlanib qoldi."
 #: .\templates\components\home\index_about.html:44
 msgid "Discover More"
 msgstr "Ko'proq kashf qiling"
-
-#: .\templates\components\home\index_hero.html:15
-msgid "hero_title_1"
-msgstr ""
-
-#: .\templates\components\home\index_hero.html:18
-msgid "hero_title_2"
-msgstr ""
-
-#: .\templates\components\home\index_hero.html:22
-msgid "hero_title_3"
-msgstr ""

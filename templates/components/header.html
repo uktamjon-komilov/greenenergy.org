@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load static active_link_tags i18n %}
 
 {% get_current_language as CURRENT_LANGUAGE %}
 {% get_available_languages as AVAILABLE_LANGUAGES %}
@@ -8,9 +8,9 @@
   <button class="close-search" onClick="document.body.classList.remove('search-active')">
     <span class="far fa-times"></span>
   </button>
-  <form action="#">
+  <form action="{% url 'search-page' %}">
     <div class="form-group">
-      <input type="search" name="search-field" placeholder="{% trans 'Search Here...' %}" required="">
+      <input type="search" name="q" placeholder="{% trans 'Search Here...' %}" required="">
       <button type="submit"><i class="far fa-search"></i></button>
     </div>
   </form>
@@ -34,7 +34,12 @@
           <div class="header-top-lang">
             <div class="dropdown">
               <button class="dropdown-toggle" type="button" id="lang" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="far fa-globe-americas"></i>English
+                <i class="far fa-globe-americas"></i>
+                {% for language in languages %}
+                  {% if language.code == CURRENT_LANGUAGE %}
+                    {{ language.name_local }}
+                  {% endif %}
+                {% endfor %}
               </button>
               <ul class="dropdown-menu" aria-labelledby="lang">
                 {% for language in languages %}
@@ -56,29 +61,67 @@
       </div>
     </div>
   </div>
+  
+
   <div class="main-navigation">
     <nav class="navbar navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="/" style="font-size: 32px; font-weight: 500">
+        <a class="navbar-brand" href="{% url 'home-page' %}" style="font-size: 32px; font-weight: 500">
           <span style="color: #32C36C">GREEN</span><span style="color: #253745">ENERGY</span>
         </a>
         <div class="mobile-menu-right">
           <a href="#" class="mobile-search-btn search-box-outer"><i class="far fa-search"></i></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
-            aria-expanded="false" aria-label="Toggle navigation">
+                  aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="far fa-stream"></i></span>
           </button>
         </div>
-        <div class="collapse navbar-collapse" id="main_nav">
+        <div class="navbar-collapse collapse" id="main_nav">
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
-              <a class="nav-link active" href="{% url 'home-page' %}" data-bs-toggle="dropdown">{% trans 'Home' %}</a>
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Categories' %}</a>
+              
+              
+              <ul class="dropdown-menu fade-up">
+                
+                {% for category in categories  %}
+                
+                {% if category.children.count == 0 and category.parent == None %}
+                <li>
+                  <a class="dropdown-item" href="{{category.navigation_link}}">{{ category.title }}</a>
+                </li>
+                {% elif category.parent == None  %}
+
+                  <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="{{category.navigation_link}}">{{category.title}}</a>
+                    <ul class="dropdown-menu fade-up">
+                      {% for child_category in category.children.all %}
+                        <li>
+                          <a class="dropdown-item" href="{{category.navigation_link}}">{{child_category.title}}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+
+                {% endif %}
+
+              
+                {% endfor %}
+
+              </ul>
+             
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about-page' %}">{% trans 'About' %}</a>
+              <a class="nav-link {% active_link 'howtobuy-page' %}" href="{% url 'howtobuy-page' %}">{% trans 'How To Buy' %}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'contact-page' %}">{% trans 'Contact' %}</a>
+              <a class="nav-link" href="#">{% trans 'Investments' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% active_link 'about-page' %}" href="{% url 'about-page' %}" >{% trans 'About' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% active_link 'blog-list-page-all' %}" href="{% url 'blog-list-page-all' %}">{% trans 'Blog' %}</a>
             </li>
           </ul>
           <div class="header-nav-right">
@@ -90,4 +133,6 @@
       </div>
     </nav>
   </div>
+
+
 </header>

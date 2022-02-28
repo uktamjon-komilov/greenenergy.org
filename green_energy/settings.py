@@ -27,9 +27,13 @@ INSTALLED_APPS = [
     "rest_framework",
     "rosetta",
     "parler",
+    "django_summernote",
+    "mptt",
+    'active_link',
 
-    "website"
+    "website",
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -57,6 +61,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "website.context_proccessor.categories",
+                "website.context_proccessor.links",
             ],
         },
     },
@@ -133,3 +139,9 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+
+
+
+ACTIVE_LINK_CSS_CLASS = "active"

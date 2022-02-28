@@ -1,1 +1,28 @@
+
 {% extends 'base.html' %}
+
+{% load static i18n %}
+
+{% block content %}
+<main class="main">
+  <div class="site-breadcrumb" style="background: url({% static 'assets/img/breadcrumb.jpg' %})">
+    <div class="container">
+      <h2 class="breadcrumb-title">{% trans 'About Us' %}</h2>
+      <ul class="breadcrumb-menu">
+        <li><a href="{% url 'home-page' %}">{% trans 'Home' %}</a></li>
+        <li class="active">{% trans 'About us' %}</li>
+      </ul>
+    </div>
+  </div>
+
+  {% include 'components/home/index_about.html' %}
+
+  
+  {% include 'components/home/index_counter.html' %}
+
+  {% include 'components/home/index_team.html' %}
+
+  
+</main>
+
+{% endblock content %}

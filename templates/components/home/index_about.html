@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load static i18n show_about_button %}
 
 <div class="about-area py-120">
     <div class="container">
@@ -6,7 +6,7 @@
             <div class="col-lg-6">
                 <div class="about-left">
                     <div class="about-img">
-                        <img src="assets/img/ishchi.jpg" alt="">
+                        <img src="{% static 'assets/img/ishchi.jpg' %}" alt="">
                     </div>
                     <div class="about-experience">
                         <span>{% trans 'about_section_years' %}</span>
@@ -41,7 +41,7 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="{% url 'about-page' %}" class="theme-btn">{% trans 'Discover More' %}<i class="fas fa-arrow-circle-right"></i></a>
+                    {{request|show_about_button|safe}}
                 </div>
             </div>
         </div>

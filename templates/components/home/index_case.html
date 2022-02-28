@@ -1,14 +1,14 @@
+{% load static  i18n %}
 <div class="case-area py-120">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="site-heading text-center">
-                    <span class="site-title-tagline">Projects</span>
-                    <h2 class="site-title">Our Featured <span>Projects</span></h2>
+                    <span class="site-title-tagline">{% trans 'Projects' %}</span>
+                    <h2 class="site-title">{% trans 'Our Featured' %}<span>{% trans 'Projects' %}</span></h2>
                     <div class="heading-divider"></div>
                     <p>
-                        It is a long established fact that a reader will be distracted by the readable content
-                        of a page when looking at its layout.
+                        {% trans 'case_text' %}
                     </p>
                 </div>
             </div>
@@ -18,20 +18,25 @@
                 <div class="owl-stage-outer">
                     <div class="owl-stage">
                         <div class="owl-item ">
-                            <div class="case-item">
-                                <div class="case-img">
-                                    <img class="img-fluid" src="assets/img/01.jpg" alt="">
-                                    <a class="popup-img case-link" href="assets/img/01.jpg"> <i
-                                            class="far fa-plus"></i></a>
-                                </div>
-                                <div class="case-content">
-                                    <div class="case-content-info">
-                                        <small>Solar Power</small>
-                                        <h4><a href="#">Solar Energy</a></h4>
+                            
+                            {% for case in cases %}
+                                
+                                <div class="case-item">
+                                    <div class="case-img">
+                                        <img class="img-fluid" src="{{ case.image.url }}" alt="">
+                                        <a class="popup-img case-link" href="{{ case.image.url }}"> <i
+                                                class="far fa-plus"></i></a>
                                     </div>
-                                    <a href="#" class="case-arrow"><i class="far fa-arrow-right"></i></a>
+                                    <div class="case-content">
+                                        <div class="case-content-info">
+                                            <small>{{case.category.title}}</small>
+                                            <h4><a href="{{case.detail_link}}">{{case.title}}</a></h4>
+                                        </div>
+                                        <a href="{{case.detail_link}}" class="case-arrow"><i class="far fa-arrow-right"></i></a>
+                                    </div>
                                 </div>
-                            </div>
+                                
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

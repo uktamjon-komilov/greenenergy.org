@@ -1,14 +1,15 @@
+{% load static  i18n %}
+
 <div class="testimonial-area bg py-120">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="site-heading text-center">
-                    <span class="site-title-tagline">Testimonials</span>
-                    <h2 class="site-title">What Client <span>Say's</span></h2>
+                    <span class="site-title-tagline">{% trans 'Testimonials' %}</span>
+                    <h2 class="site-title">{% trans 'What Client' %} <span>{% trans 'Say\'s' %}</span></h2>
                     <div class="heading-divider"></div>
                     <p>
-                        It is a long established fact that a reader will be distracted by the readable content
-                        of a page when looking at its layout.
+                        {% trans 'testimonial_text' %}
                     </p>
                 </div>
             </div>
@@ -16,35 +17,34 @@
         <div class="testimonial-slider owl-carousel owl-theme owl-loaded owl-drag">
             <div class="owl-stage-outer">
                 <div class="owl-stage">
+                    {% for testimonial  in testimonials %}
                     <div class="owl-item">
                         <div class="testimonial-single">
                             <div class="testimonial-quote">
                                 <span class="testimonial-quote-icon"><i class="fal fa-quote-right"></i></span>
                                 <p>
-                                    There are many variations of passages of Lorem Ipsum available, but the
-                                    majority
-                                    have
-                                    suffered alteration in some form, by injected humour.
+                                    {{testimonial.comment | safe }}
                                 </p>
                             </div>
-                            <div class="testimonial-content">
-                                <div class="testimonial-author-img">
-                                    <img src="assets/img/comments.jpg" alt="">
-                                </div>
-                                <div class="testimonial-author-info">
-                                    <h4>Gordon D Novak</h4>
-                                    <p>Customer</p>
-                                    <div class="testimonial-rate">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                            
+                            
+                                <div class="testimonial-content">
+                                    <div class="testimonial-author-img">
+                                        <img src="{% static 'assets/img/comments.jpg' %}" alt="">
+                                    </div>
+                                    <div class="testimonial-author-info">
+                                        <h4>{{ testimonial.fullname }}</h4>
+                                        <p>{{ testimonial.identity }}</p>
+                                        <div class="testimonial-rate">
+                                            {{testimonial.stars_component | safe}}
+                                        </div>
                                     </div>
                                 </div>
+                                
+                                
                             </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% load static i18n %}
+
+{% block content %}
+
+
+<main>
+
+  <div class="contact-area py-5">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="row">
+          <div class="col-md-12 pb-30">
+            <h1 class="title text-center">{% trans 'Contact us' %}</h1>
+          </div>
+          <div class="col-md-8 align-self-center">
+            <div class="contact-form">
+              <div class="contact-form-header">
+                <h2>{% trans 'Get In Touch' %}</h2>
+                <p>{% trans 'How_to_By_page_text' %} </p>
+              </div>
+              <form method="post" id="contact-form" action="{% url 'feedback' %}">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      
+                      <input type="text" class="form-control" name="{{form.name.html_name}}" placeholder="{% trans 'Your Name' %}" required="">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                     
+                      <input type="email" class="form-control" name="{{form.email.html_name}}" placeholder="{% trans 'Your Email' %}" required="">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  
+                  <input type="text" class="form-control" name="{{form.subject.html_name}}" placeholder="{% trans 'Your Subject' %}" required="">
+                </div>
+                <div class="form-group">
+                  <textarea name="{{form.message.html_name}}" cols="30" rows="5" class="form-control"
+                    placeholder="{% trans 'Write Your Message' %}"></textarea>
+                    
+                </div>
+                <button type="submit" class="theme-btn"><i class="far fa-paper-plane"></i>{% trans ' Send Message' %}</button>
+                <div class="col-md-12 mt-3">
+                  <div class="form-messege text-success"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="contact-content">
+              <div class="contact-info">
+                <div class="contact-info-icon">
+                  <i class="fal fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h5>{% trans 'Office Address' %}</h5>
+                  <p>{% trans 'office_adress' %}</p>
+                </div>
+              </div>
+              <div class="contact-info">
+                <div class="contact-info-icon">
+                  <i class="fal fa-phone"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h5>{% trans 'Call Us' %}</h5>
+                  <p>{% trans 'phone_number' %}</p>
+                </div>
+              </div>
+              <div class="contact-info">
+                <div class="contact-info-icon">
+                  <i class="fal fa-envelope"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h5>{% trans 'Email Us' %}</h5>
+                  <p>{% trans 'email_adress' %}</p>
+                </div>
+              </div>
+              <div class="contact-info">
+                <div class="contact-info-icon">
+                  <i class="fal fa-clock"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h5>{% trans 'Office Open' %}</h5>
+                  <p>{% trans 'office_open_hours' %}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34194156103!2d-74.03927096447748!3d40.759040329405195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4a01c8df6fb3cb8!2sSolomon%20R.%20Guggenheim%20Museum!5e0!3m2!1sen!2sbd!4v1619410634508!5m2!1sen!2s"
+          style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock content %}
+

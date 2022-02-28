@@ -1,42 +1,21 @@
 <div class="counter-area bg2 pt-70 pb-70">
     <div class="container">
         <div class="row justify-content-center">
+            
+            {% for counter in counters %}
+                
             <div class="col-md-6 col-lg-4 col-xl-3">
                 <div class="counter-box">
-                    <div class="icon"><i class="flaticon-available"></i></div>
+                    <div class="icon">{{ counter.get_icon | safe }}</div>
                     <div>
-                        <span class="counter" data-count="+" data-to="1500" data-speed="3000">1500</span>
-                        <h6 class="title">+ Project Done</h6>
+                        <span class="counter" data-count="+" data-to="0" data-speed="{{ counter.count }}">{{ counter.count }}</span>
+                        <h6 class="title">+ {{ counter.title }}</h6>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div class="counter-box">
-                    <div class="icon"><i class="flaticon-plug"></i></div>
-                    <div>
-                        <span class="counter" data-count="+" data-to="250" data-speed="3000">250</span>
-                        <h6 class="title">+ Happy Clients</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div class="counter-box">
-                    <div class="icon"><i class="flaticon-helmet"></i></div>
-                    <div>
-                        <span class="counter" data-count="+" data-to="120" data-speed="3000">120</span>
-                        <h6 class="title">+ Active Experts</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div class="counter-box">
-                    <div class="icon"><i class="flaticon-repair"></i></div>
-                    <div>
-                        <span class="counter" data-count="+" data-to="50" data-speed="3000">50</span>
-                        <h6 class="title">+ Win Awards</h6>
-                    </div>
-                </div>
-            </div>
+            
+            {% endfor %}
+                
         </div>
     </div>
 </div>

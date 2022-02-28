@@ -1,80 +1,46 @@
+{% load static  i18n %}
 <div class="choose-area">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="choose-content">
                     <div class="site-heading mb-0">
-                        <span class="site-title-tagline text-white">Why Choose Us</span>
-                        <h2 class="site-title text-white mb-10">Energize Society <span>With Reliable</span>
-                            Energy
+                        <span class="site-title-tagline text-white">{% trans 'Why Choose Us' %}</span>
+                        <h2 class="site-title text-white mb-10">{% trans 'Energize Society' %}<span>{% trans 'With Reliable' %}</span>
+                            {% trans 'Energy' %}
                         </h2>
                         <p class="text-white">
-                            It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.
+                            {% trans 'choose_text' %}
                         </p>
                     </div>
                     <div class="choose-content-wrapper">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="choose-item">
-                                    <div class="choose-item-icon">
-                                        <i class="flaticon-plug"></i>
-                                    </div>
-                                    <div class="choose-item-info">
-                                        <h3>Save Your Money</h3>
-                                        <p>There are many variations of passages of Lorem Ipsum available but
-                                            the
-                                            majority have suffered.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="choose-item">
-                                    <div class="choose-item-icon">
-                                        <i class="flaticon-chat-1"></i>
-                                    </div>
-                                    <div class="choose-item-info">
-                                        <h3>Consult &amp; Planning</h3>
-                                        <p>There are many variations of passages of Lorem Ipsum available but
-                                            the
-                                            majority have suffered.</p>
+                            
+                            {% for choose in chooses %}
+                                    
+                                <div class="col-md-6">
+                                    <div class="choose-item">
+                                        <div class="choose-item-icon">
+                                            {{ choose.get_icon | safe }}
+                                        </div>
+                                        <div class="choose-item-info">
+                                            <h3> {{ choose.title | safe }} </h3>
+                                            <p> {{ choose.description | safe }} </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="choose-item">
-                                    <div class="choose-item-icon">
-                                        <i class="flaticon-clock"></i>
-                                    </div>
-                                    <div class="choose-item-info">
-                                        <h3>Individual Support</h3>
-                                        <p>There are many variations of passages of Lorem Ipsum available but
-                                            the
-                                            majority have suffered.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="choose-item">
-                                    <div class="choose-item-icon">
-                                        <i class="flaticon-available"></i>
-                                    </div>
-                                    <div class="choose-item-info">
-                                        <h3>Certified Engineers</h3>
-                                        <p>There are many variations of passages of Lorem Ipsum available but
-                                            the
-                                            majority have suffered.</p>
-                                    </div>
-                                </div>
-                            </div>
+                                
+                            {% endfor %}
+                            
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="choose-img" style="background-image: url('assets/img/01 (1).jpg')">
+                <div class="choose-img" style="background-image: url('{% static 'assets/img/01 (1).jpg' %}')">
                     <div class="video-wrapper">
-                        <a class="play-btn popup-youtube" href="https://www.youtube.com/watch?v=KgdDQGSL0qs">
+                        <a class="play-btn popup-youtube" href="{% trans 'choose_youtube_link' %}">
                             <i class="fas fa-play"></i>
                         </a>
                     </div>

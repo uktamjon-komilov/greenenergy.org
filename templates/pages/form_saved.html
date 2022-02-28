@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+
+{% load static i18n %}
+
+{% block content %}
+
+<main class="main">
+
+    <div class="blog-single-area pt-120 pb-120">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-12">
+                <div class="blog-single-wrapper">
+                  <div class="blog-single-content">
+                    <div class="blog-info">
+                      <div class="blog-details">
+                        <h3 class="blog-details-title mb-20">{% trans 'your_feedaback_saved' %}</h3>
+                        <p class="mb-10">
+                          {% trans 'your_fededback_saved_text' %}
+
+                          <p><a href="{% url 'home-page' %}" class="theme-btn">{% trans 'Home' %}</a></p>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+        </div>
+    </div>
+
+
+</main>
+
+{% endblock %}
