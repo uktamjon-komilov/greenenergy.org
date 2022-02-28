@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 
 {% load static i18n %}
@@ -10,7 +9,7 @@
       <h2 class="breadcrumb-title">{% trans 'Our Blog' %}</h2>
       <ul class="breadcrumb-menu">
         <li><a href="{% url 'home-page' %}">{% trans 'Home' %}</a></li>
-        <li class="active">Our Blog</li>
+        <li class="active">{% trans 'Our Blog' %}</li>
       </ul>
     </div>
   </div>
@@ -19,85 +18,75 @@
     <div class="container">
       <div class="row">
 
-        
-        {% for blog in blogs %}       
-              
-            <div class="col-md-6 col-lg-4">
-              <div class="blog-item">
-                <div class="blog-item-img">
-                  <img src="{{ blog.get_thumbnail }}" alt="Thumb">
-                </div>
-                <div class="blog-item-info">
-                  <div class="blog-item-meta">
-                    <ul>
-                      <li><a href="#"><i class="far fa-calendar-alt"></i> {{ blog.date }}</a></li>
-                    </ul>
-                  </div>
-                  <h4 class="blog-title">
-                    <a href="#">{{ blog.title }}</a>
-                  </h4>
-                  <p>
-                    {{ blog.short_description | slice:"98" }}...
-                  </p>
-                  <a class="blog-btn" href="{{blog.url}}">Read More<i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-              </div>
+        {% for blog in blogs %}
+
+        <div class="col-md-6 col-lg-4">
+          <div class="blog-item">
+            <div class="blog-item-img">
+              <img src="{{ blog.get_thumbnail }}" alt="Thumb">
             </div>
-
-
+            <div class="blog-item-info">
+              <div class="blog-item-meta">
+                <ul>
+                  <li><a href="#"><i class="far fa-calendar-alt"></i> {{ blog.date }}</a></li>
+                </ul>
+              </div>
+              <h4 class="blog-title">
+                <a href="#">{{ blog.title }}</a>
+              </h4>
+              <p>
+                {{ blog.short_description | slice:"98" }}...
+              </p>
+              <a class="blog-btn" href="{{blog.url}}">{% trans 'Read More' %}<i
+                  class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
         {% endfor %}
 
       </div>
 
+      <div class="pagination-area">
+        <div aria-label="Page navigation example">
+          {% if blogs.has_other_pages %}
+          <ul class="pagination">
 
-
-      
-
-          <div class="pagination-area">
-            <div aria-label="Page navigation example">
-            {% if blogs.has_other_pages %}
-              <ul class="pagination">
-                
-                {% if blogs.has_previous %}
-                  <li class="page-item">
-                    <a class="page-link" href="?page={{ blogs.previous_page_number }}" aria-label="Previous">
-                      <span aria-hidden="true"><i class="far fa-angle-double-left"></i></span>
-                    </a>
-                  </li>
-                {% else %}
-                  <li class="page-item"></li>
-                {% endif %}
-
-                {% for i in blogs.paginator.page_range %}
-                  {% if blogs.number == i %}
-                    <li class="page-item active"><a class="page-link" href="#">{{ i }} </a></li>
-                  {% else %}
-                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                  {% endif %}
-                {% endfor %}
-
-                {% if blogs.has_next %}
-                <li class="page-item">
-                  <a class="page-link" href="?page={{ blogs.next_page_number }}" aria-label="Next">
-                    <span aria-hidden="true"><i class="far fa-angle-double-right"></i></span>
-                  </a>
-                </li>
-                {% else %}
-                <li></li>
-                {% endif %}
-              </ul>
-
+            {% if blogs.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ blogs.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true"><i class="far fa-angle-double-left"></i></span>
+              </a>
+            </li>
+            {% else %}
+            <li class="page-item"></li>
             {% endif %}
-            </div>
-          </div>
 
-        
+            {% for i in blogs.paginator.page_range %}
+            {% if blogs.number == i %}
+            <li class="page-item active"><a class="page-link" href="#">{{ i }} </a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
 
+            {% if blogs.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ blogs.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true"><i class="far fa-angle-double-right"></i></span>
+              </a>
+            </li>
+            {% else %}
+            <li></li>
+            {% endif %}
+          </ul>
 
+          {% endif %}
+        </div>
       </div>
+
     </div>
+  </div>
 
 </main>
 
 {% endblock %}
-  

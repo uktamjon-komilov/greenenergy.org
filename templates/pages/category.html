@@ -4,47 +4,47 @@
 
 {% block content %}
 <main class="main">
-    <div class="site-breadcrumb" style="background: url({{category.background_image_url}})">
-      <div class="container">
-        <h2 class="breadcrumb-title">{{category.title}}</h2>
-        <ul class="breadcrumb-menu">
-          <li><a href="{% url 'home-page' %}">{% trans 'Home' %}</a></li>
-          <li class="active">{{category.title}}</li>
-        </ul>
-      </div>
+  <div class="site-breadcrumb" style="background: url({{category.background_image_url}})">
+    <div class="container">
+      <h2 class="breadcrumb-title">{{category.title}}</h2>
+      <ul class="breadcrumb-menu">
+        <li><a href="{% url 'home-page' %}">{% trans 'Home' %}</a></li>
+        <li class="active">{{category.title}}</li>
+      </ul>
     </div>
-  
-    <div class="service-area2 bg py-5">
-      <div class="container">
-          {% if products %}
-        <div class="row g-4">
-            {% for product in products %}
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-item">
-                    <div class="service-img">
-                        <img src="{{product.get_thumbnail}}" alt="">
-                    </div>
-                    <div class="service-content" style="padding-top: 26px">
-                        <h3 class="service-title">
-                        <a href="{{product.detail_link}}">{{product.title}}</a>
-                        </h3>
-                        <p class="service-text">
-                            {{product.short_description}}
-                        </p>
-                        <div class="service-arrow">
-                        <a href="{{product.detail_link}}" class="service-btn"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-          {% endfor %}
+  </div>
+
+  <div class="service-area2 bg py-5">
+    <div class="container">
+      {% if products %}
+      <div class="row g-4">
+        {% for product in products %}
+        <div class="col-md-6 col-lg-4">
+          <div class="service-item">
+            <div class="service-img">
+              <img src="{{product.get_thumbnail}}" alt="">
+            </div>
+            <div class="service-content" style="padding-top: 26px">
+              <h3 class="service-title">
+                <a href="{{product.detail_link}}">{{product.title}}</a>
+              </h3>
+              <p class="service-text">
+                {{product.short_description}}
+              </p>
+              <div class="service-arrow">
+                <a href="{{product.detail_link}}" class="service-btn"><i class="far fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
-        {% else %}
-        <h2 style="text-align: center;">{% trans 'there_is_no_product_this_category' %}</h2>
-        {% endif %}
+        {% endfor %}
       </div>
+      {% else %}
+      <h2 style="text-align: center;">{% trans 'there_is_no_product_this_category' %}</h2>
+      {% endif %}
     </div>
-  
-  </main>
-  
+  </div>
+
+</main>
+
 {% endblock content %}

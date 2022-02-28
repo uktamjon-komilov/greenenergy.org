@@ -19,4 +19,5 @@ urlpatterns = [
     path("feedback/", feedback, name="feedback"),
     path("feedback-saved/", feedback_saved, name="feedback-saved"),
     path("not-valid/", not_valid, name="not-valid"),
+    path("page/<slug>/", static_page, name="static-page")
 ]

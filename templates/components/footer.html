@@ -11,39 +11,41 @@
         <div class="col-md-6 col-lg-4">
           <div class="footer-widget-box about-us">
             <a class="navbar-brand" href="/" style="font-size: 36px; font-weight: 500">
-              <span style="color: #32C36C">GREEN</span><span style="color: #FFF">ENERGY</span>
+              <span style="color: #32C36C">GREEN</span><span style="color: #FFF">ERGYS</span>
             </a>
             <p class="mb-20">
               {% trans 'about_us_text' %}
             </p>
             <ul class="footer-social">
               {% for item in follow_links %}
-                <li><a href="{{item.get_link}}">{{item.get_icon | safe}}</a></li>
+              <li><a href="{{item.get_link}}">{{item.get_icon | safe}}</a></li>
               {% endfor %}
             </ul>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-4">
           <div class="footer-widget-box">
             <h4 class="footer-widget-title">{% trans 'Contact Us' %}</h4>
             <ul class="footer-contact">
               <li><i class="far fa-map-marker-alt"></i>{% trans 'footer_address' %}</li>
-              <li><a href="tel:{% trans 'footer_phone' %}"><i class="far fa-phone"></i>{% trans 'footer_phone' %}</a></li>
-              <li><a href="mailto:{% trans 'footer_email' %}"><i class="far fa-envelope"></i>{% trans 'footer_email' %}</a>
+              <li><a href="tel:{% trans 'footer_phone' %}"><i class="far fa-phone"></i>{% trans 'footer_phone' %}</a>
+              </li>
+              <li><a href="mailto:{% trans 'footer_email' %}"><i
+                    class="far fa-envelope"></i>{% trans 'footer_email' %}</a>
               </li>
               <li><i class="far fa-clock"></i>{% trans 'footer_working_hours' %}</li>
             </ul>
           </div>
         </div>
-        <div class="col-md-6 col-lg-2">
+        <div class="col-md-6 col-lg-3">
           <div class="footer-widget-box list">
             <h4 class="footer-widget-title">{% trans 'Quick Links' %}</h4>
             <ul class="footer-list">
-              <li><a href="{% url 'about-page' %}"><i class="fas fa-caret-right"></i> About Us</a></li>
+              <li><a href="{% url 'about-page' %}"><i class="fas fa-caret-right"></i> {% trans 'About Us' %}</a></li>
             </ul>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <!-- <div class="col-md-6 col-lg-3">
           <div class="footer-widget-box list">
             <h4 class="footer-widget-title">{% trans 'Newsletter' %}</h4>
             <div class="footer-newsletter">
@@ -55,21 +57,21 @@
                     <span class="far fa-envelope"></span> {% trans 'Subscribe Now' %}
                   </button>
                 </form> -->
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
+  </div>
+  </div> -->
+  </div>
+  </div>
   </div>
   <div class="copyright">
     <div class="container">
       <div class="row">
         <div class="col-md-12 align-self-center">
           <p class="copyright-text text-center">
-            © Copyright <span id="date">{% trans 'copyright_year' %}</span>
+            © {% trans 'Copyright' %} <span id="date">{% trans 'copyright_year' %}</span>
             <a href="{% url 'home-page' %}" style="color: #32C36C">
-              <span >GREEN</span><span>ENERGY</span>
+              <span>GREEN</span><span>ERGYS</span>
             </a> {% trans 'All Rights Reserved.' %}
           </p>
         </div>

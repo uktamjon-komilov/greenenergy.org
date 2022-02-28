@@ -1,21 +1,22 @@
 <div class="counter-area bg2 pt-70 pb-70">
     <div class="container">
         <div class="row justify-content-center">
-            
+
             {% for counter in counters %}
-                
+
             <div class="col-md-6 col-lg-4 col-xl-3">
                 <div class="counter-box">
                     <div class="icon">{{ counter.get_icon | safe }}</div>
                     <div>
-                        <span class="counter" data-count="+" data-to="0" data-speed="{{ counter.count }}">{{ counter.count }}</span>
+                        <span class="counter" data-count="+" data-to="0" data-speed="{{ counter.count }}">{{
+                            counter.count }}</span>
                         <h6 class="title">+ {{ counter.title }}</h6>
                     </div>
                 </div>
             </div>
-            
+
             {% endfor %}
-                
+
         </div>
     </div>
 </div>

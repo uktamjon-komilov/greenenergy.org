@@ -5,37 +5,37 @@
 {% block content %}
 <main class="main">
 
-    <div class="site-breadcrumb" style="background: url({{case.category.background_image_url}})">
-      <div class="container">
-        <h2 class="breadcrumb-title">{{case.title}}</h2>
-        <ul class="breadcrumb-menu">
-          <li><a href="{% url 'home-page' %}">{% trans 'Home' %}</a></li>
-          <li class="active">{{case.title}}</li>
-        </ul>
-      </div>
+  <div class="site-breadcrumb" style="background: url({{case.category.background_image_url}})">
+    <div class="container">
+      <h2 class="breadcrumb-title">{{case.title}}</h2>
+      <ul class="breadcrumb-menu">
+        <li><a href="{% url 'home-page' %}">{% trans 'Home' %}</a></li>
+        <li class="active">{{case.title}}</li>
+      </ul>
     </div>
-  
-    <div class="service-single-area py-120">
-      <div class="container">
-        <div class="service-single-wrapper">
-          <div class="row">
-            
-            <div class="col-xl-12 col-lg-12">
+  </div>
+
+  <div class="service-single-area py-120">
+    <div class="container">
+      <div class="service-single-wrapper">
+        <div class="row">
+
+          <div class="col-xl-12 col-lg-12">
+            <div class="service-details">
+              {% if case.image %}
+              <div class="service-details-img mb-30">
+                <img src="{{case.image.url}}" alt="thumb">
+              </div>
+              {% endif %}
               <div class="service-details">
-                    {% if case.image %}
-                        <div class="service-details-img mb-30">
-                            <img src="{{case.image.url}}" alt="thumb">
-                        </div>
-                    {% endif %}
-                <div class="service-details">
-                  <h3 class="mb-30">{{case.title}}</h3>
-                  {{case.content | safe}}
-                </div>
+                <h3 class="mb-30">{{case.title}}</h3>
+                {{case.content | safe}}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </main>
+  </div>
+</main>
 {% endblock content %}

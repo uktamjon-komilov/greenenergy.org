@@ -4,6 +4,7 @@
 {% get_available_languages as AVAILABLE_LANGUAGES %}
 {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
 
+
 <div class="search-popup">
   <button class="close-search" onClick="document.body.classList.remove('search-active')">
     <span class="far fa-times"></span>
@@ -25,7 +26,8 @@
             <ul>
               <li><a href="tel: {% trans 'header_phone' %}"><i class="far fa-phone"></i>{% trans 'header_phone' %}</a>
               </li>
-              <li><a href="mailto:{% trans 'header_email' %}"><i class="far fa-envelope"></i>{% trans 'header_email' %}</a>
+              <li><a href="mailto:{% trans 'header_email' %}"><i
+                    class="far fa-envelope"></i>{% trans 'header_email' %}</a>
               </li>
             </ul>
           </div>
@@ -36,17 +38,18 @@
               <button class="dropdown-toggle" type="button" id="lang" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="far fa-globe-americas"></i>
                 {% for language in languages %}
-                  {% if language.code == CURRENT_LANGUAGE %}
-                    {{ language.name_local }}
-                  {% endif %}
+                {% if language.code == CURRENT_LANGUAGE %}
+                {{ language.name_local }}
+                {% endif %}
                 {% endfor %}
               </button>
               <ul class="dropdown-menu" aria-labelledby="lang">
                 {% for language in languages %}
-                  <li>
-                    <a class="dropdown-item {% if language.code == CURRENT_LANGUAGE %}active{% endif %}" href="/{{ language.code }}/">
-                      <img src="/static/assets/img/lang/{{language.code}}.png" alt="">{{ language.name_local }}</a>
-                  </li>
+                <li>
+                  <a class="dropdown-item {% if language.code == CURRENT_LANGUAGE %}active{% endif %}"
+                    href="/{{ language.code }}/">
+                    <img src="/static/assets/img/lang/{{language.code}}.png" alt="">{{ language.name_local }}</a>
+                </li>
                 {% endfor %}
               </ul>
             </div>
@@ -61,67 +64,68 @@
       </div>
     </div>
   </div>
-  
+
 
   <div class="main-navigation">
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand" href="{% url 'home-page' %}" style="font-size: 32px; font-weight: 500">
-          <span style="color: #32C36C">GREEN</span><span style="color: #253745">ENERGY</span>
+          <span style="color: #32C36C">GREEN</span><span style="color: #253745">ERGYS.COM</span>
         </a>
         <div class="mobile-menu-right">
           <a href="#" class="mobile-search-btn search-box-outer"><i class="far fa-search"></i></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
-                  aria-expanded="true" aria-label="Toggle navigation">
+            aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="far fa-stream"></i></span>
           </button>
         </div>
         <div class="navbar-collapse collapse" id="main_nav">
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Categories' %}</a>
-              
-              
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">{% trans 'Categories' %}</a>
               <ul class="dropdown-menu fade-up">
-                
-                {% for category in categories  %}
-                
+
+                {% for category in categories %}
+
                 {% if category.children.count == 0 and category.parent == None %}
                 <li>
                   <a class="dropdown-item" href="{{category.navigation_link}}">{{ category.title }}</a>
                 </li>
-                {% elif category.parent == None  %}
+                {% elif category.parent == None %}
 
-                  <li class="dropdown-submenu">
-                    <a class="dropdown-item dropdown-toggle" href="{{category.navigation_link}}">{{category.title}}</a>
-                    <ul class="dropdown-menu fade-up">
-                      {% for child_category in category.children.all %}
-                        <li>
-                          <a class="dropdown-item" href="{{category.navigation_link}}">{{child_category.title}}</a>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  </li>
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item dropdown-toggle" href="{{category.navigation_link}}">{{category.title}}</a>
+                  <ul class="dropdown-menu fade-up">
+                    {% for child_category in category.children.all %}
+                    <li>
+                      <a class="dropdown-item" href="{{category.navigation_link}}">{{child_category.title}}</a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </li>
 
                 {% endif %}
-
-              
                 {% endfor %}
 
               </ul>
-             
+
             </li>
             <li class="nav-item">
-              <a class="nav-link {% active_link 'howtobuy-page' %}" href="{% url 'howtobuy-page' %}">{% trans 'How To Buy' %}</a>
+              <a class="nav-link {% active_link 'howtobuy-page' %}"
+                href="{% url 'howtobuy-page' %}">{% trans 'How To Buy' %}</a>
+            </li>
+            {% for page in navbar_static_pages %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{page.get_link}}">{{page.title}}</a>
+            </li>
+            {% endfor %}
+            <li class="nav-item">
+              <a class="nav-link {% active_link 'about-page' %}" href="{% url 'about-page' %}">{% trans 'About' %}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">{% trans 'Investments' %}</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link {% active_link 'about-page' %}" href="{% url 'about-page' %}" >{% trans 'About' %}</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link {% active_link 'blog-list-page-all' %}" href="{% url 'blog-list-page-all' %}">{% trans 'Blog' %}</a>
+              <a class="nav-link {% active_link 'blog-list-page-all' %}"
+                href="{% url 'blog-list-page-all' %}">{% trans 'Blog' %}</a>
             </li>
           </ul>
           <div class="header-nav-right">
@@ -133,6 +137,5 @@
       </div>
     </nav>
   </div>
-
 
 </header>

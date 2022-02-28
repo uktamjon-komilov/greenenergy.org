@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 import environ
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -63,6 +64,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "website.context_proccessor.categories",
                 "website.context_proccessor.links",
+                "website.context_proccessor.navbar_static_pages",
             ],
         },
     },
@@ -140,8 +142,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
-
-
+LOGIN_URL = "/admin/login/"
 
 ACTIVE_LINK_CSS_CLASS = "active"

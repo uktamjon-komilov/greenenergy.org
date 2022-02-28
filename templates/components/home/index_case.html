@@ -1,4 +1,4 @@
-{% load static  i18n %}
+{% load static i18n %}
 <div class="case-area py-120">
     <div class="container">
         <div class="row">
@@ -18,24 +18,25 @@
                 <div class="owl-stage-outer">
                     <div class="owl-stage">
                         <div class="owl-item ">
-                            
+
                             {% for case in cases %}
-                                
-                                <div class="case-item">
-                                    <div class="case-img">
-                                        <img class="img-fluid" src="{{ case.image.url }}" alt="">
-                                        <a class="popup-img case-link" href="{{ case.image.url }}"> <i
-                                                class="far fa-plus"></i></a>
-                                    </div>
-                                    <div class="case-content">
-                                        <div class="case-content-info">
-                                            <small>{{case.category.title}}</small>
-                                            <h4><a href="{{case.detail_link}}">{{case.title}}</a></h4>
-                                        </div>
-                                        <a href="{{case.detail_link}}" class="case-arrow"><i class="far fa-arrow-right"></i></a>
-                                    </div>
+
+                            <div class="case-item">
+                                <div class="case-img">
+                                    <img class="img-fluid" src="{{ case.image.url }}" alt="">
+                                    <a class="popup-img case-link" href="{{ case.image.url }}"> <i
+                                            class="far fa-plus"></i></a>
                                 </div>
-                                
+                                <div class="case-content">
+                                    <div class="case-content-info">
+                                        <small>{{case.category.title}}</small>
+                                        <h4><a href="{{case.detail_link}}">{{case.title}}</a></h4>
+                                    </div>
+                                    <a href="{{case.detail_link}}" class="case-arrow"><i
+                                            class="far fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+
                             {% endfor %}
                         </div>
                     </div>

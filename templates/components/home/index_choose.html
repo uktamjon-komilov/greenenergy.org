@@ -1,4 +1,4 @@
-{% load static  i18n %}
+{% load static i18n %}
 <div class="choose-area">
     <div class="container">
         <div class="row">
@@ -6,7 +6,8 @@
                 <div class="choose-content">
                     <div class="site-heading mb-0">
                         <span class="site-title-tagline text-white">{% trans 'Why Choose Us' %}</span>
-                        <h2 class="site-title text-white mb-10">{% trans 'Energize Society' %}<span>{% trans 'With Reliable' %}</span>
+                        <h2 class="site-title text-white mb-10">{% trans 'Energize Society' %}
+                            <span>{% trans 'With Reliable' %}</span>
                             {% trans 'Energy' %}
                         </h2>
                         <p class="text-white">
@@ -15,23 +16,23 @@
                     </div>
                     <div class="choose-content-wrapper">
                         <div class="row">
-                            
+
                             {% for choose in chooses %}
-                                    
-                                <div class="col-md-6">
-                                    <div class="choose-item">
-                                        <div class="choose-item-icon">
-                                            {{ choose.get_icon | safe }}
-                                        </div>
-                                        <div class="choose-item-info">
-                                            <h3> {{ choose.title | safe }} </h3>
-                                            <p> {{ choose.description | safe }} </p>
-                                        </div>
+
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon">
+                                        {{ choose.get_icon | safe }}
+                                    </div>
+                                    <div class="choose-item-info">
+                                        <h3> {{ choose.title | safe }} </h3>
+                                        <p> {{ choose.description | safe }} </p>
                                     </div>
                                 </div>
-                                
+                            </div>
+
                             {% endfor %}
-                            
+
 
                         </div>
                     </div>

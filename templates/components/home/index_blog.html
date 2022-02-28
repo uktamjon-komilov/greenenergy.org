@@ -1,4 +1,4 @@
-{% load static  i18n %}
+{% load static i18n %}
 
 <div class="blog-area pt-120">
     <div class="container">
@@ -16,32 +16,32 @@
         </div>
         <div class="row">
 
-            
             {% for blog in blogs %}
-                    
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-item">
-                        <div class="blog-item-img">
-                            <img src="{{ blog.image_description.url }}" alt="Thumb">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-item-img">
+                        <img src="{{ blog.image_description.url }}">
+                    </div>
+                    <div class="blog-item-info">
+                        <div class="blog-item-meta">
+                            <ul>
+                                <li><a href="{{blog.url}}"><i class="far fa-user-circle"></i> {{ blog.author }}</a></li>
+                                <li><a href="{{blog.url}}"><i class="far fa-calendar-alt"></i> {{ blog.date }}</a></li>
+                            </ul>
                         </div>
-                        <div class="blog-item-info">
-                            <div class="blog-item-meta">
-                                <ul>
-                                    <li><a href="#"><i class="far fa-user-circle"></i> {{ blog.author }}</a></li>
-                                    <li><a href="#"><i class="far fa-calendar-alt"></i> {{ blog.date  }}</a></li>
-                                </ul>
-                            </div>
-                            <h4 class="blog-title">
-                                <a href="#">{{ blog.title }}</a>
-                            </h4>
-                            <p>
-                                {{ blog.short_description |slice:":100"}}...
-                            </p>
-                            <a class="blog-btn" href="{{blog.url}}">Read More<i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
+                        <h4 class="blog-title">
+                            <a href="{{blog.url}}">{{ blog.title }}</a>
+                        </h4>
+                        <p>
+                            {{ blog.short_description |slice:":100"}}...
+                        </p>
+                        <a class="blog-btn" href="{{blog.url}}">{% trans 'Read More' %}<i
+                                class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-            {% endfor %}    
+            </div>
+            {% endfor %}
 
         </div>
     </div>

@@ -4,38 +4,40 @@
 
 {% block content %}
 
-    <div class="service-area2 bg py-5">
-      <div class="container">
-          <center><h2 style="margin-bottom: 30px;">{% trans 'Searching results' %}:</h2></center>
-          {% if products %}
+<div class="service-area2 bg py-5">
+    <div class="container">
+        <center>
+            <h2 style="margin-bottom: 30px;">{% trans 'Searching results' %}:</h2>
+        </center>
+        {% if products %}
         <div class="row g-4">
             {% for product in products %}
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-item">
+            <div class="col-md-6 col-lg-4">
+                <div class="service-item">
                     <div class="service-img">
                         <img src="{{product.get_thumbnail}}" alt="">
                     </div>
                     <div class="service-content" style="padding-top: 26px">
                         <h3 class="service-title">
-                        <a href="{{product.detail_link}}">{{product.title}}</a>
+                            <a href="{{product.detail_link}}">{{product.title}}</a>
                         </h3>
                         <p class="service-text">
                             {{product.short_description}}
                         </p>
                         <div class="service-arrow">
-                        <a href="{{product.detail_link}}" class="service-btn"><i class="far fa-arrow-right"></i></a>
+                            <a href="{{product.detail_link}}" class="service-btn"><i class="far fa-arrow-right"></i></a>
                         </div>
                     </div>
-                    </div>
                 </div>
-          {% endfor %}
+            </div>
+            {% endfor %}
         </div>
         {% else %}
         <h2 style="text-align: center;">{% trans 'there_is_no_product_this_category' %}</h2>
         {% endif %}
-      </div>
     </div>
-  
+</div>
 
-  
+
+
 {% endblock content %}

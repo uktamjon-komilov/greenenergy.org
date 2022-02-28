@@ -1,6 +1,4 @@
-from multiprocessing import context
 from django.db.models import Q
-from django.http import JsonResponse
 from django.urls import reverse
 from django.shortcuts import redirect, render
 from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
@@ -22,6 +20,7 @@ def home_page(request):
     process_items =ProcessItem.objects.all()
     testimonials = Testimonial.objects.all()
     blogs = Blog.objects.all().order_by("-id")[:3]
+    partners = Partner.objects.all()
     return render(
         request,
         "index.html",
@@ -35,7 +34,8 @@ def home_page(request):
             "team_experts" : team_experts,
             "process_items" : process_items,
             "testimonials" : testimonials,
-            "blogs" : blogs
+            "blogs" : blogs,
+            "partners": partners
         }
     )
 
@@ -255,5 +255,21 @@ def feedback(request):
 def feedback_saved(request):
     return render(request, "pages/form_saved.html")
 
+
 def not_valid(request):
     return render(request, "pages/not_valid.html")
+
+
+def static_page(request, slug):
+    try:
+        page = StaticPage.objects.get(slug=slug)
+    except:
+        return redirect(reverse("home-page"))
+    
+    return render(
+        request,
+        "pages/static.html",
+        context={
+            "page": page
+        }
+    )

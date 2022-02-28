@@ -25,27 +25,31 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      
-                      <input type="text" class="form-control" name="{{form.name.html_name}}" placeholder="{% trans 'Your Name' %}" required="">
+
+                      <input type="text" class="form-control" name="{{form.name.html_name}}"
+                        placeholder="{% trans 'Your Name' %}" required="">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                     
-                      <input type="email" class="form-control" name="{{form.email.html_name}}" placeholder="{% trans 'Your Email' %}" required="">
+
+                      <input type="email" class="form-control" name="{{form.email.html_name}}"
+                        placeholder="{% trans 'Your Email' %}" required="">
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  
-                  <input type="text" class="form-control" name="{{form.subject.html_name}}" placeholder="{% trans 'Your Subject' %}" required="">
+
+                  <input type="text" class="form-control" name="{{form.subject.html_name}}"
+                    placeholder="{% trans 'Your Subject' %}" required="">
                 </div>
                 <div class="form-group">
                   <textarea name="{{form.message.html_name}}" cols="30" rows="5" class="form-control"
                     placeholder="{% trans 'Write Your Message' %}"></textarea>
-                    
+
                 </div>
-                <button type="submit" class="theme-btn"><i class="far fa-paper-plane"></i>{% trans ' Send Message' %}</button>
+                <button type="submit" class="theme-btn"><i class="far fa-paper-plane"></i>{% trans ' Send Message'
+                  %}</button>
                 <div class="col-md-12 mt-3">
                   <div class="form-messege text-success"></div>
                 </div>
@@ -104,4 +108,3 @@
 
 </main>
 {% endblock content %}
-

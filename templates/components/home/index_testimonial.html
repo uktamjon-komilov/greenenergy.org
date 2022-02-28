@@ -1,4 +1,4 @@
-{% load static  i18n %}
+{% load static i18n %}
 
 <div class="testimonial-area bg py-120">
     <div class="container">
@@ -17,7 +17,7 @@
         <div class="testimonial-slider owl-carousel owl-theme owl-loaded owl-drag">
             <div class="owl-stage-outer">
                 <div class="owl-stage">
-                    {% for testimonial  in testimonials %}
+                    {% for testimonial in testimonials %}
                     <div class="owl-item">
                         <div class="testimonial-single">
                             <div class="testimonial-quote">
@@ -26,24 +26,24 @@
                                     {{testimonial.comment | safe }}
                                 </p>
                             </div>
-                            
-                            
-                                <div class="testimonial-content">
-                                    <div class="testimonial-author-img">
-                                        <img src="{% static 'assets/img/comments.jpg' %}" alt="">
-                                    </div>
-                                    <div class="testimonial-author-info">
-                                        <h4>{{ testimonial.fullname }}</h4>
-                                        <p>{{ testimonial.identity }}</p>
-                                        <div class="testimonial-rate">
-                                            {{testimonial.stars_component | safe}}
-                                        </div>
+
+
+                            <div class="testimonial-content">
+                                <div class="testimonial-author-img">
+                                    <img src="{% static 'assets/img/comments.jpg' %}" alt="">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <h4>{{ testimonial.fullname }}</h4>
+                                    <p>{{ testimonial.identity }}</p>
+                                    <div class="testimonial-rate">
+                                        {{testimonial.stars_component | safe}}
                                     </div>
                                 </div>
-                                
-                                
                             </div>
+
+
                         </div>
+                    </div>
                     {% endfor %}
                 </div>
             </div>

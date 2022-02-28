@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static i18n %}
+
+{% block content %}
+<div class="preloader"></div>
+
+
+<main class="main">
+
+    <div class="site-breadcrumb" style="background: url({% static 'assets/img/breadcrumb.jpg' %})">
+        <div class="container">
+            <h2 class="breadcrumb-title">{{page.title}}</h2>
+        </div>
+    </div>
+
+
+    <div class="blog-single-area pt-120 pb-120">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8">
+                    <div class="blog-single-wrapper">
+                        <div class="blog-single-content">
+                            <div class="blog-info">
+                                <div class="blog-details">
+                                    <!-- <h3 class="blog-details-title mb-20">{{page.title}}</h3> -->
+                                    <p class="mb-10">
+                                        {{page.content | safe}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}

@@ -1,27 +1,29 @@
-import email
 from django.templatetags.static import static
 from django.urls import reverse
-from unicodedata import category
 from django.db import models
 from parler.models import TranslatableModel, TranslatedFields
 from mptt.models import MPTTModel, TreeForeignKey
 from .managers import CategoryManager
 from django_resized import ResizedImageField
 from django.core.validators import MaxLengthValidator, MinLengthValidator
+from django.utils.translation import gettext_lazy as _
 import html2text
 
 
 class Category(MPTTModel, TranslatableModel):
+    class Meta:
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
     
-    parent = TreeForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, related_name="children")
+    parent = TreeForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, related_name="children", verbose_name=_("Parent category"))
     
     translations = TranslatedFields(
-        title = models.CharField(max_length=255),
+        title = models.CharField(max_length=255, verbose_name=_("Title")),
     )
 
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, verbose_name=_("Image"))
     
-    slug=models.SlugField()
+    slug=models.SlugField(verbose_name=_("Short url"))
 
     objects=CategoryManager()
     
@@ -45,9 +47,13 @@ class Category(MPTTModel, TranslatableModel):
 
 
 class FollowLink(models.Model):
-    icon_text = models.TextField(null=True, blank=True)
-    icon = models.ImageField(null=True, blank=True)
-    link = models.TextField()
+    class Meta:
+        verbose_name = _("Follow link")
+        verbose_name_plural = _("Follow links")
+
+    icon = models.ImageField(null=True, blank=True, verbose_name=_("Icon file"))
+    icon_text = models.TextField(null=True, blank=True, verbose_name=_("Font Awesome Icon"))
+    link = models.TextField(verbose_name=_("Link"))
 
     def __str__(self):
         return self.link or "-"
@@ -65,13 +71,17 @@ class FollowLink(models.Model):
 
 
 class BannerHero(TranslatableModel):
+    class Meta:
+        verbose_name = _("Banner")
+        verbose_name_plural = _("Banners")
+    
     translations = TranslatedFields(
-        title1 = models.CharField(max_length=255, null=True, blank=True),
-        title2 = models.CharField(max_length=255, null=True, blank=True),
-        title3 = models.CharField(max_length=255, null=True, blank=True),
+        title1 = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Title 1")),
+        title2 = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Title 2")),
+        title3 = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Title 3")),
     )
 
-    image = models.FileField()
+    image = models.FileField(verbose_name=_("Image"))
 
     def __str__(self):
         return self.safe_translation_getter("title1", any_language=True) or "-"
@@ -84,14 +94,18 @@ class BannerHero(TranslatableModel):
 
 
 class FeatureItem(TranslatableModel):
+    class Meta:
+        verbose_name = _("Feature item")
+        verbose_name_plural = _("Feature items")
+    
     translations = TranslatedFields(
-        title = models.CharField(max_length=255),
-        description = models.TextField()
+        title = models.CharField(max_length=255, verbose_name=_("Title")),
+        description = models.TextField(verbose_name=_("Description"))
     )
 
-    icon = models.FileField(null=True, blank=True)
-    icon_text=models.CharField(max_length=255, null=True, blank=True)
-    slug = models.SlugField()
+    icon = models.FileField(null=True, blank=True, verbose_name=_("Icon file"))
+    icon_text=models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Font Awesome Icon"))
+    slug = models.SlugField(verbose_name=_("Short url"))
 
     def get_icon(self):
         if self.icon:
@@ -105,15 +119,19 @@ class FeatureItem(TranslatableModel):
 
 
 class Service(TranslatableModel):
+    class Meta:
+        verbose_name = _("Service")
+        verbose_name_plural = _("Services")
+
     translations = TranslatedFields(
-        title = models.CharField(max_length=255),
-        description = models.TextField(),
-        content = models.TextField()
+        title = models.CharField(max_length=255, verbose_name=_("Title")),
+        description = models.TextField(verbose_name=_("Description")),
+        content = models.TextField(verbose_name=_("Content"))
     )
 
-    icon = models.FileField(null=True, blank=True)
-    icon_text=models.CharField(max_length=255, null=True, blank=True)
-    slug = models.SlugField()
+    icon = models.FileField(null=True, blank=True, verbose_name=_("Icon file"))
+    icon_text=models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Font Awesome Icon"))
+    slug = models.SlugField(verbose_name=_("Short url"))
 
     def get_icon(self):
         if self.icon:
@@ -131,13 +149,17 @@ class Service(TranslatableModel):
 
 
 class Counter(TranslatableModel):
+    class Meta:
+        verbose_name = _("Counter")
+        verbose_name_plural = _("Counters")
+    
     translations = TranslatedFields(
-        title = models.CharField(max_length=15),
+        title = models.CharField(max_length=15, verbose_name=_("Title")),
     )
 
-    icon = models.FileField(null=True, blank=True)
-    icon_text = models.CharField(max_length=255, null=True, blank=True)
-    count = models.IntegerField()
+    icon = models.FileField(null=True, blank=True, verbose_name=_("Icon file"))
+    icon_text = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Font Awesome Icon"))
+    count = models.IntegerField(verbose_name=_("Number"))
 
     def get_icon(self):
         if self.icon:
@@ -150,16 +172,19 @@ class Counter(TranslatableModel):
 
 
 class Case(TranslatableModel):
+    class Meta:
+        verbose_name = _("Case")
+        verbose_name_plural = _("Cases")
     
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, verbose_name=_("Category"))
 
     translations = TranslatedFields(
-        title = models.CharField(max_length=15),
-        content = models.TextField()
+        title = models.CharField(max_length=15, verbose_name=_("Title")),
+        content = models.TextField(verbose_name=_("Content"))
     )
 
-    slug = models.SlugField()
-    image = ResizedImageField(size=[367, 400],  quality=100, crop=["middle", "center"], upload_to="images/")
+    slug = models.SlugField(verbose_name=_("Short url"))
+    image = ResizedImageField(size=[367, 400],  quality=100, crop=["middle", "center"], upload_to="images/", verbose_name=_("Image"))
 
     def __str__(self):
         return self.safe_translation_getter("title", any_language=True) or "-"
@@ -175,13 +200,17 @@ class Case(TranslatableModel):
  
 
 class Choose(TranslatableModel):
+    class Meta:
+        verbose_name = _("Option")
+        verbose_name_plural = _("Options")
+
     translations = TranslatedFields(
-        title = models.CharField(max_length=255),
-        description = models.TextField()
+        title = models.CharField(max_length=255, verbose_name=_("Title")),
+        description = models.TextField(verbose_name=_("Description"))
     )
 
-    icon = models.FileField(null=True, blank=True)
-    icon_text=models.CharField(max_length=255, null=True, blank=True)
+    icon = models.FileField(null=True, blank=True, verbose_name=_("Icon file"))
+    icon_text=models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Font Awesome Icon"))
 
     def get_icon(self):
         if self.icon:
@@ -194,21 +223,28 @@ class Choose(TranslatableModel):
 
 
 class TeamExpert(TranslatableModel):
-
+    class Meta:
+        verbose_name = _("Expert")
+        verbose_name_plural = _("Experts")
+    
     translations = TranslatedFields(
-        title = models.CharField(max_length=255),
-        description = models.TextField(),
-        job=models.CharField(max_length=255)
+        title = models.CharField(max_length=255, verbose_name=_("Title")),
+        description = models.TextField(verbose_name=_("Description")),
+        job=models.CharField(max_length=255, verbose_name=_("Position"))
     )
-    slug = models.SlugField()
-    image = ResizedImageField(size=[367, 400],  quality=100, crop=["middle", "center"], upload_to="images/", null=True, blank=True)
+    slug = models.SlugField(verbose_name=_("Short url"))
+    image = ResizedImageField(size=[367, 400],  quality=100, crop=["middle", "center"], upload_to="images/", null=True, blank=True, verbose_name=_("Image"))
 
 
 class SocialAccount(models.Model):
-    team_expert = models.ForeignKey(TeamExpert, null=True, on_delete=models.SET_NULL, related_name="links")
-    link=models.TextField()
-    icon = models.FileField(null=True, blank=True)
-    icon_text=models.CharField(max_length=255, null=True, blank=True)
+    class Meta:
+        verbose_name = _("Social network")
+        verbose_name_plural = _("Social networks")
+    
+    team_expert = models.ForeignKey(TeamExpert, null=True, on_delete=models.SET_NULL, related_name="links", verbose_name=_("Expert"))
+    link=models.TextField(verbose_name=_("Link"))
+    icon = models.FileField(null=True, blank=True, verbose_name=_("Icon file"))
+    icon_text=models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Font Awesome Icon"))
 
     def get_icon(self):
         if self.icon:
@@ -221,13 +257,16 @@ class SocialAccount(models.Model):
 
 
 class ProcessItem(TranslatableModel):
-
+    class Meta:
+        verbose_name = _("Process item")
+        verbose_name_plural = _("Process items")
+    
     translations = TranslatedFields(
-        title = models.CharField(max_length=30),
-        description = models.CharField(max_length=70)
+        title = models.CharField(max_length=30, verbose_name=_("Title")),
+        description = models.CharField(max_length=70, verbose_name=_("Description"))
     )
 
-    image = ResizedImageField(size=[100, 100],  quality=100, crop=["middle", "center"], upload_to="images/")
+    image = ResizedImageField(size=[100, 100],  quality=100, crop=["middle", "center"], upload_to="images/", verbose_name=_("Image"))
 
     def __str__(self):
         return self.safe_translation_getter("title", any_language=True) or "-"
@@ -236,20 +275,24 @@ class ProcessItem(TranslatableModel):
 
 
 class Testimonial(TranslatableModel):
+    class Meta:
+        verbose_name = _("Testimonial")
+        verbose_name_plural = _("Testimonials")
     
-    fullname = models.CharField(max_length=30)
+    fullname = models.CharField(max_length=30, verbose_name=_("Fullname"))
 
     translations = TranslatedFields(
-        comment = models.CharField(max_length=70),
-        identity = models.CharField(max_length=70)
+        comment = models.CharField(max_length=70, verbose_name=_("Comment")),
+        identity = models.CharField(max_length=70, verbose_name=_("Commenter"))
     )
 
-    image = ResizedImageField(size=[100, 100],  quality=100, crop=["middle", "center"], upload_to="images/")
+    image = ResizedImageField(size=[100, 100],  quality=100, crop=["middle", "center"], upload_to="images/", verbose_name=_("Image"))
     rating = models.IntegerField(
         validators=[
             MaxLengthValidator,
             MinLengthValidator
-        ]
+        ],
+        verbose_name=_("Rating score")
     )
 
     def __str__(self):
@@ -273,20 +316,23 @@ class Testimonial(TranslatableModel):
 
 
 class Product(TranslatableModel):
-
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    class Meta:
+        verbose_name = _("Product")
+        verbose_name_plural = _("Products")
+    
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, verbose_name=_("Category"))
 
     translations = TranslatedFields(
-        title = models.CharField(max_length=40),
-        description = models.TextField(),
-        content = models.TextField(),
+        title = models.CharField(max_length=40, verbose_name=_("Title")),
+        description = models.TextField(verbose_name=_("Short description")),
+        content = models.TextField(verbose_name=_("Content")),
     )
 
-    slug = models.SlugField()
+    slug = models.SlugField(verbose_name=_("Short url"))
     
-    image_content = ResizedImageField(size=[1920, 1280],  quality=100, crop=["middle", "center"], upload_to="images/")
+    image_content = ResizedImageField(size=[1920, 1280],  quality=100, crop=["middle", "center"], upload_to="images/", verbose_name=_("Main image"))
 
-    image_description = ResizedImageField(size=[550, 600],  quality=100, crop=["middle", "center"], upload_to="images/")
+    image_description = ResizedImageField(size=[550, 600],  quality=100, crop=["middle", "center"], upload_to="images/", verbose_name=_("Thumbnail image"))
 
     def __str__(self):
         return self.safe_translation_getter("title", any_language=True) or "-"
@@ -321,12 +367,15 @@ class Product(TranslatableModel):
 
 
 class BlogCategory(TranslatableModel):
+    class Meta:
+        verbose_name = _("Blog category")
+        verbose_name_plural = _("Blog categories")
     
     translations = TranslatedFields(
-        title = models.CharField(max_length=50),
+        title = models.CharField(max_length=50, verbose_name=_("Title")),
     )
 
-    slug=models.SlugField()
+    slug=models.SlugField(verbose_name=_("Short url"))
 
     def __str__(self):
         return self.safe_translation_getter("title", any_language=True) or "-"
@@ -339,23 +388,26 @@ class BlogCategory(TranslatableModel):
 
 
 class Blog(TranslatableModel):
-
-    category = models.ForeignKey(BlogCategory, on_delete=models.SET_NULL, null=True, related_name="posts")
+    class Meta:
+        verbose_name = _("Post")
+        verbose_name_plural = _("Posts")
+    
+    category = models.ForeignKey(BlogCategory, on_delete=models.SET_NULL, null=True, related_name="posts", verbose_name=_("Category"))
 
     translations = TranslatedFields(
-        title = models.CharField(max_length=50),
-        content = models.TextField(),
+        title = models.CharField(max_length=50, verbose_name=_("Title")),
+        content = models.TextField(verbose_name=_("Content")),
     )
 
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True, verbose_name=_("Date and time"))
 
-    author = models.CharField(max_length = 100)
+    author = models.CharField(max_length = 100, verbose_name=_("Author"))
 
-    slug = models.SlugField()
+    slug = models.SlugField(verbose_name=_("Short url"))
     
-    image_content = ResizedImageField(size=[1920, 1280],  quality=100, crop=["middle", "center"], upload_to="images/")
+    image_content = ResizedImageField(size=[1920, 1280],  quality=100, crop=["middle", "center"], upload_to="images/", verbose_name=_("Main image"))
 
-    image_description = ResizedImageField(size=[550, 600],  quality=100, crop=["middle", "center"], upload_to="images/")
+    image_description = ResizedImageField(size=[550, 600],  quality=100, crop=["middle", "center"], upload_to="images/", verbose_name=_("Thumbnail image"))
 
     def __str__(self):
         return self.safe_translation_getter("title", any_language=True) or "-"
@@ -379,10 +431,56 @@ class Blog(TranslatableModel):
 
 
 class Feedback(models.Model):
-    name = models.CharField(max_length=255)
-    email = models.EmailField()
-    subject = models.CharField(max_length=255)
-    message = models.TextField()
+    class Meta:
+        verbose_name = _("Feedback")
+        verbose_name_plural = _("Feedbacks")
+    
+    name = models.CharField(max_length=255, verbose_name=_("Fullname"))
+    email = models.EmailField(verbose_name=_("Email"))
+    subject = models.CharField(max_length=255, verbose_name=_("Subject"))
+    message = models.TextField(verbose_name=_("Message"))
     
     def __str__(self):
         return self.name or "-"
+
+
+class Partner(models.Model):
+    title = models.CharField(max_length=255, verbose_name=_("Title"))
+    url = models.TextField(verbose_name=_("Url"))
+    image = models.ImageField(verbose_name=_("Image"))
+
+    def __str__(self):
+        return self.title
+    
+
+    @property
+    def get_image(self):
+        if self.image:
+            return self.image.url
+        return ""
+    
+
+    @property
+    def get_alt(self):
+        if self.title:
+            return self.title
+        return ""
+
+
+class StaticPage(TranslatableModel):
+    translations = TranslatedFields(
+        title = models.CharField(max_length=50, verbose_name=_("Title")),
+        content = models.TextField(verbose_name=_("Content")),
+    )
+
+    slug = models.SlugField()
+
+    show_at_navbar = models.BooleanField(default=False)
+    show_at_footer = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.safe_translation_getter("title", any_language=True) or "-"
+    
+    @property
+    def get_link(self):
+        return reverse("static-page", kwargs={"slug": self.slug})

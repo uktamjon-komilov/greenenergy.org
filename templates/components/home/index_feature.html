@@ -1,23 +1,23 @@
 {% if feature_items.count > 0 %}
-    <div class="feature-area pb-80">
-        <div class="container">
-            <div class="row">
-                
-                {% for feature_item in feature_items %}
-                    <div class="col-md-6 col-lg-6 col-xl-4">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                {{feature_item.get_icon | safe}}
-                            </div>
-                            <div class="feature-content">
-                                <h4>{{feature_item.title | slice:":20"}}</h4>
-                                <p>{{feature_item.description }}</p>
-                            </div>
-                        </div>
+<div class="feature-area pb-80">
+    <div class="container">
+        <div class="row">
+
+            {% for feature_item in feature_items %}
+            <div class="col-md-6 col-lg-6 col-xl-4">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        {{feature_item.get_icon | safe}}
                     </div>
-                {% endfor %}
-                
+                    <div class="feature-content">
+                        <h4>{{feature_item.title | slice:":20"}}</h4>
+                        <p>{{feature_item.description }}</p>
+                    </div>
+                </div>
             </div>
+            {% endfor %}
+
         </div>
     </div>
+</div>
 {% endif %}

@@ -1,15 +1,16 @@
-{% load static  i18n %}
+{% load static i18n %}
 <div class="partner-area pt-70 pb-70">
     <div class="container">
         <div class="partner-wrapper partner-slider owl-carousel owl-theme owl-loaded owl-drag">
             <div class="owl-stage-outer">
                 <div class="owl-stage">
+                    {% for partner in partners %}
                     <div class="owl-item">
-                        <img src="{% static 'assets/img/partner.jpg' %}" alt="thumb">
+                        <a href="{{partner.url}}">
+                            <img src="{{partner.get_image}}" alt="{{partner.get_alt}}">
+                        </a>
                     </div>
-                    <div class="owl-item">
-                        <img src="{% static 'assets/img/partner2.jpg' %}" alt="thumb">
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
